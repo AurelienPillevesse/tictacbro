@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import model.ApplicationPrincipale?>
+
+<SplitPane dividerPositions="0.4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MasterDetailWindowController">
+  <items>
+      <fx:define>
+          <ApplicationPrincipale fx:id="app" />
+          <Integer fx:id="moins1" fx:value="-1" />
+      </fx:define>
+      <BorderPane>
+         <center>
+            <ListView fx:id="listeJoueurs" BorderPane.alignment="CENTER" />
+         </center>
+         <bottom>
+            <Button fx:id="boutonAjouterJoueur" alignment="CENTER" mnemonicParsing="false" onAction="#cliqueAjouterJoueur" text="Ajouter un joueur" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </BorderPane.margin></Button>
+         </bottom>
+      </BorderPane>
+      <BorderPane>
+         <center>
+            <GridPane disable="${listeJoueurs.selectionModel.selectedIndex == moins1}" fx:id="gridInfo" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                <RowConstraints vgrow="NEVER" />
+                <RowConstraints vgrow="NEVER" />
+                <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+              </rowConstraints>
+               <BorderPane.margin>
+                  <Insets left="15.0" right="15.0" />
+               </BorderPane.margin>
+               <children>
+                  <Label text="Perdu(s) :" GridPane.rowIndex="6">
+                     <GridPane.margin>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Nul(s) :" GridPane.rowIndex="7">
+                     <GridPane.margin>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Ratio (victoire/défaite) :" GridPane.rowIndex="8">
+                     <GridPane.margin>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Nom :">
+                     <GridPane.margin>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Prénom :" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Couleur :" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </GridPane.margin></Label>
+                  <Label alignment="CENTER" text="Statistiques : " textAlignment="CENTER" underline="true" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Nombre de parties :" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Gagné(s) :" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </GridPane.margin></Label>
+                  <TextField fx:id="nomJoueur" GridPane.columnIndex="1" />
+                  <TextField fx:id="prenomJoueur" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="couleurJoueur" prefWidth="150.0"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="partiePerdu" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label fx:id="nombreParties" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label fx:id="partieGagne" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label fx:id="partieNul" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label fx:id="ratio" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+               </children>
+            </GridPane>
+         </center>
+         <top>
+            <Label text="Informations sur le joueur :" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+         <bottom>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding>
+                  </Separator>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="buttonRetour" mnemonicParsing="false" onAction="#cliqueRetour" text="Retour">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="buttonLancerPartie" disable="${listeJoueurs.selectionModel.selectedIndex == moins1}" mnemonicParsing="false" onAction="#cliqueLancerPartie" text="Lancer la partie">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </bottom>
+      </BorderPane>
+  </items>
+</SplitPane>
